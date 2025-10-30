@@ -13,4 +13,4 @@ I enjoy building tools that make technical workflows easier — most recently, I
 ### 📫 Connect with Me
 - 💼 [LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/)
 - 💻 [Portfolio](https://personal-website-7lbo0mh0y-michaels-projects-cccc327f.vercel.app)
-- 📧 [Email](michaelnkr808@gmail.com)
+- 📧 [Email](mailto:michaelnkr808@gmail.com)
