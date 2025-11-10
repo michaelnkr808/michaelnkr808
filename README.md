@@ -3,7 +3,7 @@ I'm a Computer Science student at UC Santa Cruz passionate about full stack deve
 I enjoy building tools that make technical workflows easier — most recently, I've been building **RTFM**, a semantic documentation search engine.
 ### 🚀 What I'm Working On
 - 🧩 **RTFM** – Backend system that allows a Discord bot to recall and re-answer previously answered questions using semantic search. Built with FastAPI, PostgreSQL, ChromaDB, and Gemini for embedding and retrieval.  
-- 🍽️ **Smart-Plate** – AI-powered meal tracking app that provides personalized nutrition tips and food suggestions using LangGraph and LangChain to power agent features. Built with React Native, FastAPI, and PostgreSQL.  
+- 🐌 **Sluggle** – Solution to help cure the social void students have felt at UCSC. Built with React Native for a responsive, cross-platform frontend and Python using fastAPI and PostgreSQL to store user data and information on the backend.
 - 🌱 **Personal Website** – Showcasing my projects, technical writing, and portfolio with a clean, responsive design (React + Tailwind).
 ### 🧰 Tech Stack
 - **Languages:** Python, Typescript, JavaScript   
