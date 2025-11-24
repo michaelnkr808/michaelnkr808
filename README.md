@@ -1,6 +1,6 @@
 # Hey, I'm Michael 👋  
 I'm a Computer Science student at UC Santa Cruz passionate about full stack development, AI, and clean, scalable design.  
-I enjoy building tools that make technical workflows easier — most recently, I've been building **RTFM**, a semantic documentation search engine.
+I enjoy building tools that make technical workflows easier — most recently, I've been building **RTFM** and **Sluggle**.
 ### 🚀 What I'm Working On
 - 🧩 **RTFM** – Backend system that allows a Discord bot to recall and re-answer previously answered questions using semantic search. Built with FastAPI, PostgreSQL, ChromaDB, and Gemini for embedding and retrieval.  
 - 🐌 **Sluggle** – Solution to help cure the social void students have felt at UCSC. Built with React Native for a responsive, cross-platform frontend and Python using fastAPI and PostgreSQL to store user data and information on the backend.
