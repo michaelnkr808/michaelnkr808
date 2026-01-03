@@ -3,7 +3,7 @@ I'm a Computer Science student at UC Santa Cruz passionate about full stack deve
 I enjoy building tools that make technical workflows easier — most recently, I've been building **RTFM** and **Sluggle**.
 ### 🚀 What I'm Working On
 - 🧩 **RTFM** – Backend system that allows a Discord bot to recall and re-answer previously answered questions using semantic search. Built with FastAPI, PostgreSQL, ChromaDB, and Gemini for embedding and retrieval.  
-- 🐌 **Sluggle** – Solution to help cure the social void students have felt at UCSC. Built with React Native for a responsive, cross-platform frontend and Python using fastAPI and PostgreSQL to store user data and information on the backend.
+- 🕶️ **Visage** – Face-recognition memory assistant for MentraOS that helps cure the social void by remembering people you meet. Built with Bun + MentraOS SDK for the responsive frontend and Python/FastAPI + PostgreSQL + pgvector on the backend to capture conversations, encode faces (DeepFace/Facenet), and reliably recall folks later.
 - 🌱 **Personal Website** – Showcasing my projects, technical writing, and portfolio with a clean, responsive design (React + Tailwind).
 ### 🧰 Tech Stack
 - **Languages:** Python, Typescript, JavaScript   
