@@ -24,4 +24,4 @@ Computer vision lab at UCSC, January 2026 – present. Building a pipeline that 
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-7lbo0mh0y-michaels-projects-cccc327f.vercel.app) · michaelnkr808@gmail.com
+[LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-k446vjv0d-michaels-projects-cccc327f.vercel.app) · michaelnkr808@gmail.com
