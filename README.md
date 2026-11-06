@@ -1,27 +1,33 @@
 # Michael Ramirez
 
-CS student at UC Santa Cruz, graduating December 2027. I do computer vision research at UCSC and ship full-stack projects on the side.
+CS student at UC Santa Cruz, graduating December 2027. I do computer vision research and build full-stack and ML projects.
+
+**Looking for SWE and ML/CV internships for summer 2027.**
+
+[LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-pink-sigma-62.vercel.app) · michaelnkr808@gmail.com
 
 ## Research
 
-Computer vision lab at UCSC, January 2026 – present. Building a pipeline that combines 3D Gaussian Splatting reconstructions with SAM2 segmentation and vision-language embeddings, applied to first-person video captured on Meta ARIA glasses. The goal is to make wearable-captured scenes semantically queryable from arbitrary viewpoints.
+Computer vision lab at UCSC, January 2026 to present. I'm exploring world models built on frozen vision encoders. It's ongoing and unpublished, so I have no results to claim yet. My notes and experiment logs are in [research26-27](https://github.com/michaelnkr808/research26-27). Before this I worked on 3D Gaussian Splatting and SAM2 with ARIA glasses footage.
+
+## Roles
+
+- ACM Research Lab co-lead and Instruction Officer at UCSC, October 2026 to present
+- CSE 13S group tutor, September 2026 to present
+- Software developer at UCSC Blueprint, December 2025 to June 2026, on a nonprofit client app
 
 ## Projects
 
-**Visage** — Face-recognition memory assistant for the MentraOS smart glasses platform. Recognizes previously-met people and recalls conversation context in real time. Bun and MentraOS SDK on the device side; FastAPI with PostgreSQL/pgvector and DeepFace/FaceNet on the backend.
+**[AGNI-Network](https://github.com/beong789/AGNI-Network)**: Wildfire risk dashboard that pulls NASA, weather, and drought data into a LangChain/LangGraph agent pipeline. I was the main contributor on a team of five. Python, FastAPI, LangChain, LangGraph, Gemini, Docker.
 
-**HardwareHub** — Embedded-systems learning platform. Won Best Hardware Hack at CruzHacks 2026. Built with React, TypeScript, Hono, Supabase, and the Gemini API.
+**[Visage](https://github.com/michaelnkr808/visage)**: Face-recognition memory assistant for MentraOS smart glasses. It remembers who you've met and what you talked about. InsightFace for face embeddings, Gemini for pulling names and context from conversations, FastAPI, PostgreSQL/pgvector, Bun and the MentraOS SDK.
 
-**AGNI-Network** — Wildfire risk dashboard fusing NASA FIRMS, NWS, and US Drought Monitor signals through a LangChain/LangGraph agent pipeline. Took 3rd at the UN's Reboot the Earth 2025. Python, FastAPI, LangChain, LangGraph, Gemini.
+Also: a [port scanner in C](https://github.com/michaelnkr808/port-scanner-c).
+
+## Awards
+
+3rd place, UN Reboot the Earth 2025 (AGNI-Network). Best Hardware Hack, CruzHacks 2026 (HardwareHub).
 
 ## Stack
 
-**Languages:** Python, TypeScript, JavaScript  
-**Frameworks:** FastAPI, React, React Native, TailwindCSS  
-**ML / CV:** PyTorch, LangChain, LangGraph  
-**Data:** PostgreSQL, pgvector  
-**Tools:** Git, Docker
-
-## Contact
-
-[LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-pink-sigma-62.vercel.app) · michaelnkr808@gmail.com
+Python, TypeScript, C, FastAPI, React, PyTorch, LangChain/LangGraph, PostgreSQL/pgvector, Supabase, Docker, Kubernetes
