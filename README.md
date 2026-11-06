@@ -8,7 +8,7 @@ CS student at UC Santa Cruz, graduating December 2027. I do computer vision rese
 
 ## Research
 
-Computer vision lab at UCSC, January 2026 to present. I'm exploring world models built on frozen vision encoders, and how to tell which encoders, alone or combined, work best for robot manipulation. It's early and unpublished. Before this I worked on 3D Gaussian Splatting and SAM2 with Meta Aria glasses footage.
+Computer vision lab at UCSC, January 2026 to present. I'm exploring world models built on frozen vision encoders, and how to tell which encoders, alone or combined, work best for robot manipulation. Before this I worked on 3D Gaussian Splatting and SAM2 with Meta Aria glasses footage.
 
 ## Roles
 
