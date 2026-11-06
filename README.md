@@ -22,8 +22,6 @@ Computer vision lab at UCSC, January 2026 to present. I'm exploring world models
 
 **[Visage](https://github.com/michaelnkr808/visage)**: Face-recognition memory assistant for MentraOS smart glasses. It remembers who you've met and what you talked about. InsightFace for face embeddings, Gemini for pulling names and context from conversations, FastAPI, PostgreSQL/pgvector, Bun and the MentraOS SDK.
 
-Also: a [port scanner in C](https://github.com/michaelnkr808/port-scanner-c).
-
 ## Awards
 
 - 3rd place, UN Reboot the Earth 2025 (AGNI-Network)
