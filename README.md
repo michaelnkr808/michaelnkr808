@@ -6,6 +6,17 @@ CS student at UC Santa Cruz, graduating December 2027. I do computer vision rese
 
 [LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-pink-sigma-62.vercel.app) · michaelnkr808@gmail.com
 
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-dark.svg">
+    <img alt="Contribution streak" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-light.svg" width="49%">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-dark.svg">
+    <img alt="Commits per month" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="49%">
+  </picture>
+</p>
+
 ## Research
 
 Computer vision lab at UCSC, January 2026 to present. I'm exploring world models built on frozen vision encoders, and how to tell which encoders, alone or combined, work best for robot manipulation. Before this I worked on 3D Gaussian Splatting and SAM2 with Meta Aria glasses footage.
@@ -30,16 +41,3 @@ Computer vision lab at UCSC, January 2026 to present. I'm exploring world models
 ## Stack
 
 Python, TypeScript, C, FastAPI, React, PyTorch, LangChain/LangGraph, PostgreSQL/pgvector, Supabase, Docker, Kubernetes
-
-## Activity
-
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-dark.svg">
-    <img alt="Contribution streak" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-light.svg" width="49%">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-dark.svg">
-    <img alt="Commits per month" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="49%">
-  </picture>
-</p>
