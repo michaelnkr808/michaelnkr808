@@ -1,0 +1,42 @@
+name: Stats cards
+
+# Redraws the streak and commit cards and force-pushes them to the `stats`
+# branch, so main's history stays clean. The README loads them from there.
+on:
+  schedule:
+    - cron: "23 */4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/stats_cards.py"
+      - ".github/workflows/stats-cards.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats-cards
+  cancel-in-progress: true
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Draw cards
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/stats_cards.py "${{ github.repository_owner }}" "$RUNNER_TEMP/cards"
+
+      - name: Publish to the stats branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan stats
+          git rm -rfq .
+          cp "$RUNNER_TEMP"/cards/*.svg .
+          git add ./*.svg
+          git commit -qm "Update stats cards"
+          git push -fq origin stats

@@ -30,3 +30,16 @@ Computer vision lab at UCSC, January 2026 to present. I'm exploring world models
 ## Stack
 
 Python, TypeScript, C, FastAPI, React, PyTorch, LangChain/LangGraph, PostgreSQL/pgvector, Supabase, Docker, Kubernetes
+
+## Activity
+
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-dark.svg">
+    <img alt="Contribution streak" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-light.svg" width="49%">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-dark.svg">
+    <img alt="Commits per month" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="49%">
+  </picture>
+</p>
