@@ -245,11 +245,11 @@ def commits_card(t, data):
         if i == peak_i:
             out.append(f'<text class="fade" style="animation-delay:600ms" x="{cx:.1f}" y="{base - h - 6:.1f}" '
                        f'fill="{t["muted"]}" font-size="10" text-anchor="middle">{v}</text>')
-        is_now = i == len(monthly) - 1  # highlight the current month's initial
-        fill, weight = (t["text"], 600) if is_now else (t["muted"], 400)
-        initial = month.strftime("%b")[0]
-        out.append(f'<text x="{cx:.1f}" y="178" fill="{fill}" font-size="10" font-weight="{weight}" '
-                   f'text-anchor="middle">{initial}</text>')
+    # Label only the two ends of the time span, lined up with the outer bar edges.
+    first, last = monthly[0][0], monthly[-1][0]
+    left, right = x0 + (step - bar_w) / 2, x1 - (step - bar_w) / 2
+    out.append(f'<text x="{left:.1f}" y="178" fill="{t["muted"]}" font-size="11">{first:%b %Y}</text>')
+    out.append(f'<text x="{right:.1f}" y="178" fill="{t["muted"]}" font-size="11" text-anchor="end">{last:%b %Y}</text>')
     return frame(t, f"{data['commits']} commits since {data['created']:%B %Y}", "\n".join(out))
 
 

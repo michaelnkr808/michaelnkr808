@@ -1,10 +1,19 @@
-# Michael Ramirez
+<p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/main/assets/banner-dark.svg">
+  <img alt="Michael Ramirez. Computer vision, world models, robot manipulation." src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/main/assets/banner-light.svg" width="100%">
+</picture>
+</p>
 
 CS student at UC Santa Cruz, graduating December 2027. I do computer vision research and build full-stack and ML projects.
 
 **Looking for SWE and ML/CV internships for summer 2027.**
 
-[LinkedIn](https://www.linkedin.com/in/michael-ramirez-b99481381/) · [Portfolio](https://personal-website-pink-sigma-62.vercel.app) · michaelnkr808@gmail.com
+<p>
+  <a href="https://www.linkedin.com/in/michael-ramirez-b99481381/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnoiLz48L3N2Zz4%3D"></a>
+  <a href="https://personal-website-pink-sigma-62.vercel.app"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-24292F?style=for-the-badge&logo=vercel&logoColor=white"></a>
+  <a href="mailto:michaelnkr808@gmail.com"><img alt="Email michaelnkr808@gmail.com" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"></a>
+</p>
 
 <p>
   <picture>
@@ -40,4 +49,9 @@ Computer vision lab at UCSC, January 2026 to present. I'm exploring world models
 
 ## Stack
 
-Python, TypeScript, C, FastAPI, React, PyTorch, LangChain/LangGraph, PostgreSQL/pgvector, Supabase, Docker, Kubernetes
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/main/assets/stack-dark.svg">
+  <img alt="Python, TypeScript, C, FastAPI, React, PyTorch, PostgreSQL, Supabase, Docker, Kubernetes" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/main/assets/stack-light.svg" height="44">
+</picture>
+
+Plus pgvector for embedding search.
