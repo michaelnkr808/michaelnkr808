@@ -17,12 +17,8 @@ CS student at UC Santa Cruz, graduating December 2027. I do computer vision rese
 
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-dark.svg">
-    <img alt="Contribution streak" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/streak-light.svg" width="49%">
-  </picture>
-  <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-dark.svg">
-    <img alt="Commits per month" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="49%">
+    <img alt="Commits per week over the last year" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="100%">
   </picture>
 </p>
 
