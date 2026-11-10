@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Draw the commits card for the profile README.
+"""Draw the commits and most-active-repos cards for the profile README.
 
 Run by .github/workflows/stats-cards.yml. Pulls commit counts from the GitHub
-GraphQL API and writes a light and a dark SVG into an output folder.
-Standard library only.
+GraphQL API and writes a light and a dark SVG of each card into an output
+folder. Standard library only.
 
     GH_TOKEN=... python3 stats_cards.py <username> <out_dir>
 
 With the workflow's built-in token, commits in private repos are not counted.
 """
 
+import html
 import json
 import os
 import sys
@@ -21,6 +22,7 @@ API = "https://api.github.com/graphql"
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
 W, H = 840, 196
 WEEKS = 52
+TOP_REPOS = 5
 
 # Colors follow GitHub's own palette so the card sits naturally on the page.
 # banner.py imports these too.
@@ -64,6 +66,23 @@ def gql(token, query, **variables):
     return body["data"]
 
 
+TOP_REPOS_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection {
+      commitContributionsByRepository(maxRepositories: 10) {
+        repository { name nameWithOwner primaryLanguage { name color } }
+        contributions(first: 1, orderBy: {field: OCCURRED_AT, direction: DESC}) {
+          totalCount
+          nodes { occurredAt }
+        }
+      }
+    }
+  }
+}
+"""
+
+
 def iso(dt):
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -94,17 +113,28 @@ def fetch(login, token):
               login=login)["user"]
     weekly = [(s.date(), res[f"w{i}"]["totalCommitContributions"]) for i, s in enumerate(starts)]
 
+    # Repos with the most commits over the last 12 months, and the latest day with a commit in each.
+    rows = gql(token, TOP_REPOS_QUERY, login=login)["user"]["contributionsCollection"]["commitContributionsByRepository"]
+    rows = [r for r in rows if r["repository"]["nameWithOwner"].lower() != f"{login}/{login}".lower()]  # skip this profile repo
+    top = sorted(rows, key=lambda r: -r["contributions"]["totalCount"])[:TOP_REPOS]
+    top = [{"name": r["repository"]["name"],
+            "lang": r["repository"]["primaryLanguage"],
+            "commits": r["contributions"]["totalCount"],
+            "last": datetime.fromisoformat(r["contributions"]["nodes"][0]["occurredAt"].replace("Z", "+00:00")).date()}
+           for r in top if r["contributions"]["nodes"]]
+
     created = datetime.fromisoformat(info["createdAt"].replace("Z", "+00:00")).date()
-    return {"commits": commits, "prs": prs, "repos": len(repos), "weekly": weekly, "created": created}
+    return {"commits": commits, "prs": prs, "repos": len(repos), "weekly": weekly, "created": created,
+            "top": top, "today": now.date()}
 
 
 def plural(n, word):
     return word if n == 1 else f"{word}s"
 
 
-def label_text(t, x, y, text):
+def label_text(t, x, y, text, anchor="start"):
     return (f'<text x="{x}" y="{y}" fill="{t["muted"]}" font-size="11" font-weight="600" '
-            f'letter-spacing="1.2">{text}</text>')
+            f'letter-spacing="1.2" text-anchor="{anchor}">{text}</text>')
 
 
 def commits_card(t, data):
@@ -144,20 +174,58 @@ def commits_card(t, data):
                f'text-anchor="middle">commits per week</text>')
     out.append(f'<text x="{right:.1f}" y="172" fill="{t["muted"]}" font-size="11" text-anchor="end">this week</text>')
 
-    label = f"{data['commits']} commits since {data['created']:%B %Y}"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{label}" font-family="{SANS}">
+    return frame(t, H, f"{data['commits']} commits since {data['created']:%B %Y}", out)
+
+
+def frame(t, height, label, body):
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-label="{label}" font-family="{SANS}">
 <title>{label}</title>
 <style>
   @keyframes rise {{ from {{ transform: scaleY(0); }} to {{ transform: scaleY(1); }} }}
+  @keyframes grow {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
   @keyframes fade {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
   .rise {{ transform-box: fill-box; transform-origin: bottom; animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }}
+  .grow {{ transform-box: fill-box; transform-origin: left; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }}
   .fade {{ animation: fade .5s ease-out both; }}
-  @media (prefers-reduced-motion: reduce) {{ .rise, .fade {{ animation: none; }} }}
+  @media (prefers-reduced-motion: reduce) {{ .rise, .grow, .fade {{ animation: none; }} }}
 </style>
-<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" fill="{t['bg']}" stroke="{t['border']}"/>
-{chr(10).join(out)}
+<rect x="0.5" y="0.5" width="{W - 1}" height="{height - 1}" rx="10" fill="{t['bg']}" stroke="{t['border']}"/>
+{chr(10).join(body)}
 </svg>
 """
+
+
+def fmt_day(d, today):
+    return f"{d:%b} {d.day}" if d.year == today.year else f"{d:%b} {d.day}, {d.year}"
+
+
+def repos_card(t, data):
+    top, today = data["top"], data["today"]
+    row_h, first = 32, 82
+    height = first + row_h * (len(top) - 1) + 30
+    out = [
+        label_text(t, 28, 40, "MOST ACTIVE REPOS"),
+        f'<text x="194" y="40" fill="{t["muted"]}" font-size="11">last 12 months</text>',
+        label_text(t, 812, 40, "LAST COMMIT", anchor="end"),
+    ]
+    peak = max((r["commits"] for r in top), default=1)
+    bar_x, bar_max = 390, 300
+    for i, r in enumerate(top):
+        y = first + i * row_h
+        out.append(f'<text x="28" y="{y}" fill="{t["text"]}" font-size="14" font-weight="600">{html.escape(r["name"])}</text>')
+        if r["lang"]:
+            out.append(f'<circle cx="244" cy="{y - 4.5}" r="5" fill="{r["lang"]["color"] or t["muted"]}"/>')
+            out.append(f'<text x="256" y="{y}" fill="{t["muted"]}" font-size="12.5">{html.escape(r["lang"]["name"])}</text>')
+        w = max(4, bar_max * r["commits"] / peak)
+        out.append(f'<rect x="{bar_x}" y="{y - 10}" width="{bar_max}" height="8" rx="4" fill="{t["levels"][0]}"/>')
+        out.append(f'<rect class="grow" style="animation-delay:{i * 90}ms" x="{bar_x}" y="{y - 10}" '
+                   f'width="{w:.1f}" height="8" rx="4" fill="{t["accent"]}"/>')
+        out.append(f'<text x="{bar_x + bar_max + 14}" y="{y}" fill="{t["text"]}" font-size="12.5" font-weight="600">'
+                   f'{r["commits"]:,}</text>')
+        out.append(f'<text x="812" y="{y}" fill="{t["muted"]}" font-size="12.5" text-anchor="end">'
+                   f'{fmt_day(r["last"], today)}</text>')
+    names = ", ".join(f'{r["name"]} {r["commits"]}' for r in top)
+    return frame(t, height, f"Most active repos in the last 12 months: {names}", out)
 
 
 def main():
@@ -171,7 +239,8 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     for name, t in THEMES.items():
         (out_dir / f"commits-{name}.svg").write_text(commits_card(t, data))
-    print(f"wrote commit cards to {out_dir}: {data['commits']} commits")
+        (out_dir / f"repos-{name}.svg").write_text(repos_card(t, data))
+    print(f"wrote cards to {out_dir}: {data['commits']} commits, top repo {data['top'][0]['name'] if data['top'] else 'none'}")
 
 
 if __name__ == "__main__":

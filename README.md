@@ -20,17 +20,22 @@ CS student at UC Santa Cruz, graduating December 2027. I do computer vision rese
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-dark.svg">
     <img alt="Commits per week over the last year" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/commits-light.svg" width="100%">
   </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/repos-dark.svg">
+    <img alt="Most active repos over the last 12 months" src="https://raw.githubusercontent.com/michaelnkr808/michaelnkr808/stats/repos-light.svg" width="100%">
+  </picture>
 </p>
 
 ## Research
 
 Computer vision lab at UCSC, January 2026 to present. I'm exploring world models built on frozen vision encoders, and how to tell which encoders, alone or combined, work best for robot manipulation. Before this I worked on 3D Gaussian Splatting and SAM2 with Meta Aria glasses footage.
 
-## Roles
+## News
 
-- ACM Research Lab co-lead and Instruction Officer at UCSC, October 2026 to present
-- CSE 13S group tutor, September 2026 to present
-- Software developer at UCSC Blueprint, December 2025 to June 2026, building an app for a nonprofit client
+- **Oct 2026**: Started co-leading the ACM Research Lab at UCSC, and became its Instruction Officer.
+- **Sep 2026**: Started as a group tutor for CSE 13S.
+- **Jun 2026**: Wrapped up six months as a software developer at UCSC Blueprint, building an app for a nonprofit client.
+- **Jan 2026**: Joined a computer vision lab at UCSC.
 
 ## Projects
 

@@ -1,6 +1,6 @@
 name: Stats cards
 
-# Redraws the commits card and force-pushes them to the `stats`
+# Redraws the commits and repos cards and force-pushes them to the `stats`
 # branch, so main's history stays clean. The README loads them from there.
 on:
   schedule:
@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Draw card
+      - name: Draw cards
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 .github/scripts/stats_cards.py "${{ github.repository_owner }}" "$RUNNER_TEMP/cards"
